@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rLdS5FfxuahP54WQ46/sJr3nEc2IB9JagYMIF8f8AL0=",
+  "Source": "mc-demon-api",
+  "BasePath": "_content/mc-demon-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

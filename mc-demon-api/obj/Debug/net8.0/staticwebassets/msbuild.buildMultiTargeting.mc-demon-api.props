@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/mc-demon-api.props" />
+</Project>

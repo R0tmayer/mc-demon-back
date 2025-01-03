@@ -1,0 +1,5 @@
+{
+    "server": "ru",
+    "region": "moscow",
+    "password": "<password>"
+}

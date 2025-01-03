@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xnSjSWvCYsapPVTuMCeUSzx50hDOPHjYiQVrPxDcHniCQpRvDvfk+MQbQUu7+S7yo/HzQqMR5Sst07DMo/G71w==",
+  "success": true,
+  "projectFilePath": "/Users/romansalnikov/Desktop/mc-demon-back/mc-demon-api/mc-demon-api.csproj",
+  "expectedPackageFiles": [
+    "/Users/romansalnikov/.nuget/packages/csvhelper/33.0.1/csvhelper.33.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
