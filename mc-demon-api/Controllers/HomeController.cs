@@ -26,20 +26,6 @@ namespace mc_demon_api.Controllers
         {
             var profiles = _profileService.GetAll();
             var templates = _templateService.GetAll();
-            //List<object> templatesWithMarks = new List<object>(); // Инициализация коллекции
-
-            //foreach (var template in templates)
-            //{
-            //    List<string> marks = _templateService.GetTemplateMarks(template.Id);
-
-            //    var item = new
-            //    {
-            //        Template = template,
-            //        Marks = marks
-            //    };
-
-            //    templatesWithMarks.Add(item);
-            //}
 
             var result = new
             {
@@ -49,7 +35,6 @@ namespace mc_demon_api.Controllers
 
             return Ok(result);
         }
-
 
         [HttpPost("profiles")]
         public IActionResult AddProfile([FromBody] AddProfile newProfile)
@@ -77,6 +62,13 @@ namespace mc_demon_api.Controllers
         public IActionResult CreateConfigFile([FromBody] CreateConfig createConfig)
         {
             _configService.CreateConfigFile(createConfig);
+            return Ok();
+        }
+
+        [HttpPut("configs")]
+        public IActionResult UpdateAllConfigs()
+        {
+            _configService.UpdateAllConfigs();
             return Ok();
         }
     }

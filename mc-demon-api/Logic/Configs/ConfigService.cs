@@ -8,17 +8,46 @@ namespace mc_demon_api.Logic.Configs
 {
     public class ConfigService : IConfigService
     {
-        private readonly ITemplateService _templateService;
+        private readonly IProfileService _profileService;
 
-        public ConfigService(ITemplateService templateService)
+        public ConfigService(IProfileService profileService)
         {
-            _templateService = templateService;
+            _profileService = profileService;
         }
 
         public void CreateConfigFile(CreateConfig createConfig)
         {
             var filePath = Path.Combine(GlobalVariables.CONFIGS_FOLDER_PATH, createConfig.ConfigName);
             File.WriteAllText(filePath, createConfig.Content);
+        }
+
+        public void UpdateAllConfigs()
+        {
+            var profiles = _profileService.GetAll();
+
+            if (profiles.Count <= 0)
+            {
+                throw new Exception("No profiles found");
+            }
+            
+            var profileDict = new Dictionary<string, string>();
+
+            foreach (var profile in profiles)
+            {
+                var content = _profileService.GenerateConfig(profile);
+                profileDict.Add(profile.ConfigName, content);
+            }
+
+            foreach (var pair in profileDict)
+            {
+                var configName = pair.Key;
+                var content = pair.Value;
+
+                string filePath =
+                    Path.Combine(GlobalVariables.CONFIGS_FOLDER_PATH, configName);
+
+                File.WriteAllText(filePath, content);
+            }
         }
     }
 }

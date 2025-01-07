@@ -1,5 +1,5 @@
 {
     "server": "ru",
-    "region": "moscow",
+    "region": "euqweq",
     "password": "<password>"
 }
