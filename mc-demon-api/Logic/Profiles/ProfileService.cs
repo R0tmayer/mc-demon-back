@@ -1,4 +1,5 @@
-﻿using CsvHelper;
+﻿using System.Collections.Generic;
+using CsvHelper;
 using CsvHelper.Configuration;
 using mc_demon_api.Logic.Templates;
 

@@ -56,7 +56,7 @@ namespace mc_demon_api.Logic.Profiles
 
         public List<Profile> GetAll()
         {
-            using var reader = new StreamReader(GlobalVariables.PROFILE_CSV_PATH);
+            using var reader = new StreamReader(GlobalVariables.PROFILES_CSV_PATH);
             using var csv = new CsvReader(reader, _csvConfig);
             return csv.GetRecords<Profile>().ToList();
         }
@@ -69,12 +69,12 @@ namespace mc_demon_api.Logic.Profiles
 
         private void WriteProfiles(List<Profile> profiles)
         {
-            if (!File.Exists(GlobalVariables.PROFILE_CSV_PATH))
+            if (!File.Exists(GlobalVariables.PROFILES_CSV_PATH))
             {
                 throw new FileNotFoundException("Profile's csv file didn't found");
             }
 
-            using var writer = new StreamWriter(GlobalVariables.PROFILE_CSV_PATH, false);
+            using var writer = new StreamWriter(GlobalVariables.PROFILES_CSV_PATH, false);
             using var csv = new CsvWriter(writer, _csvConfig);
             csv.WriteHeader<Profile>();
             csv.NextRecord();
