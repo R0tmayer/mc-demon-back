@@ -1,0 +1,15 @@
+services:
+  mc-demon-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  mc-demon-frontend:
+    ports:
+      - '3000:3000' # Порт Vite Dev Server
+    volumes:
+      - ~/Desktop/mc-demon-front:/app
+      - /app/node_modules
+    env_file:
+      - ~/Desktop/mc-demon-front/.env.developement
+    depends_on:
+      - mc-demon-api

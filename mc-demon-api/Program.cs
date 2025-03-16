@@ -1,4 +1,5 @@
 using CsvHelper.Configuration;
+using mc_demon_api.Logic;
 using mc_demon_api.Logic.Configs;
 using mc_demon_api.Logic.Profiles;
 using mc_demon_api.Logic.Templates;
@@ -30,9 +31,9 @@ builder.Services.AddScoped<ITemplateRepository, TemplateRepository>();
 
 builder.Services.AddScoped<IConfigService, ConfigService>();
 
-var app = builder.Build();
+builder.Services.Configure<SourceOptions>(builder.Configuration.GetSection(nameof(SourceOptions)));
 
-app.UseHttpsRedirection();
+var app = builder.Build();
 
 app.UseCors(MyAllowSpecificOrigins);
 

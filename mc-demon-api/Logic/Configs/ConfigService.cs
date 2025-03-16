@@ -1,23 +1,23 @@
-﻿using CsvHelper.Configuration;
-using CsvHelper;
-using System.IO;
-using mc_demon_api.Logic.Profiles;
-using mc_demon_api.Logic.Templates;
+﻿using mc_demon_api.Logic.Profiles;
+using Microsoft.Extensions.Options;
 
 namespace mc_demon_api.Logic.Configs
 {
     public class ConfigService : IConfigService
     {
         private readonly IProfileService _profileService;
+        private readonly SourceOptions _sourceOptions;
 
-        public ConfigService(IProfileService profileService)
+
+        public ConfigService(IProfileService profileService, IOptions<SourceOptions> sourceOptions)
         {
             _profileService = profileService;
+            _sourceOptions = sourceOptions.Value;
         }
 
         public void CreateConfigFile(CreateConfig createConfig)
         {
-            var filePath = Path.Combine(GlobalVariables.CONFIGS_FOLDER_PATH, createConfig.ConfigName);
+            var filePath = Path.Combine(_sourceOptions.CONFIGS_FOLDER_PATH, createConfig.ConfigName);
             File.WriteAllText(filePath, createConfig.Content);
         }
 
@@ -44,7 +44,7 @@ namespace mc_demon_api.Logic.Configs
                 var content = pair.Value;
 
                 string filePath =
-                    Path.Combine(GlobalVariables.CONFIGS_FOLDER_PATH, configName);
+                    Path.Combine(_sourceOptions.CONFIGS_FOLDER_PATH, configName);
 
                 File.WriteAllText(filePath, content);
             }

@@ -1,7 +1,4 @@
-﻿using CsvHelper.Configuration;
-using CsvHelper;
-
-namespace mc_demon_api.Logic.Templates
+﻿namespace mc_demon_api.Logic.Templates
 {
     public class TemplateService : ITemplateService
     {

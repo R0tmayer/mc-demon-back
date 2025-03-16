@@ -1,13 +1,11 @@
-﻿using CsvHelper;
-using CsvHelper.Configuration;
-using mc_demon_api.Logic.Configs;
+﻿using mc_demon_api.Logic.Configs;
 using mc_demon_api.Logic.Profiles;
 using mc_demon_api.Logic.Templates;
 using Microsoft.AspNetCore.Mvc;
-using System.Globalization;
 
 namespace mc_demon_api.Controllers
 {
+    [Route("api")]
     public class HomeController : ControllerBase
     {
         private readonly IProfileService _profileService;

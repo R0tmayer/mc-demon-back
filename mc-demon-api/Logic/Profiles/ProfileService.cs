@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using CsvHelper;
-using CsvHelper.Configuration;
-using mc_demon_api.Logic.Templates;
+﻿using mc_demon_api.Logic.Templates;
 
 namespace mc_demon_api.Logic.Profiles
 {
