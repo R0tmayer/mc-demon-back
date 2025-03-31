@@ -1,6 +1,0 @@
-services:
-  mc-demon-frontend:
-    env_file:
-      - ~/Desktop/mc-demon-front/.env.production
-    volumes:
-      - /opt/mc-demon/sources:/app/sources

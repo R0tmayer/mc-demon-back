@@ -1,19 +1,18 @@
 services:
   mc-demon-api:
-    image: rotmayer/mc-b:0.0.2
+    image: rotmayer/mc-b:latest
     container_name: mc-b
     ports:
-      - '5010:5010'
+      - "5010:5010"
+    volumes:
+      - ./sources:/app/sources
     environment:
-      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Production}
       - ASPNETCORE_URLS=http://+:5010
 
   mc-demon-frontend:
-    image: rotmayer/mc-f:0.0.5
+    image: rotmayer/mc-f:latest    
     container_name: mc-f
-    volumes:
-      - ./dist:/app/dist
-    env_file:
-      - ~/Desktop/mc-demon-front/.env.developement
+    ports:
+      - "8080:80"
     depends_on:
       - mc-demon-api
